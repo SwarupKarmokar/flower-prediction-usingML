@@ -4,7 +4,7 @@ import numpy as np
 import pickle
 
 app = Flask(__name__)
-linear_model = pickle.load(open("car_price.pkl", 'rb'))
+model = pickle.load(open("flower_prediction.pkl", 'rb'))
 
 @app.route('/')
 def home():
@@ -14,11 +14,11 @@ def home():
 def predict():
     features = [float(x) for x in request.form.values()]
     final_features = [np.array(features)]
-    prediction = linear_model.predict(final_features)
+    prediction = model.predict(final_features)
 
     output = round(prediction[0], 2)
 
-    return render_template('index.html', prediction_text='Your Car Price: {} Lakhs'.format(output))
+    return render_template('index.html', prediction_text='Your predicted flower is: {}'.format(output))
 
 
 if __name__ == '__main__':
