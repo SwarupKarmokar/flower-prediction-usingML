@@ -16,7 +16,7 @@ def predict():
     final_features = [np.array(features)]
     prediction = model.predict(final_features)
 
-    output = round(prediction[0], 2)
+    output = prediction
 
     return render_template('index.html', prediction_text='Your predicted flower is: {}'.format(output))
 
