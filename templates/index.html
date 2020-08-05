@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>wellcome</title>
+    <style>
+        body{
+            background-image: url('./image/1_iris.jpg');
+            background-size: cover;
+        }
+        form{
+            text-align: right;
+            font-size: 20px;
+            color: rgb(32, 32, 178);
+        }
+    </style>
+</head>
+<body>
+    <h2 style="color: lightblue;">Lets Predict:</h2>
+    <div>
+        <form action="{{url_for('predict')}}", method="POST">
+            sepal_length:<br>
+            <input type="number" step="any" name="sepal_length" required="required"><br>
+            sepal_width:<br>
+            <input type="number" step="any" name="sepal_width" required="required"><br>
+            petal_length:<br>
+            <input type="number" step="any" name="petal_length" required="required"><br>
+            petal_width:<br>
+            <input type="number" step="any" name="petal_width" required="required"><br>
+            <button type="submit" style="color: red;">predict</button>
+        </form>
+    </div>
+    <div style="text-align: center;">
+        {{prediction_text}}
+    </div>
+</body>
+</html>
